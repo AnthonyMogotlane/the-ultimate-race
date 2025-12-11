@@ -1,5 +1,8 @@
 # The Ultimate Race
 
+![Project Overview](https://firebasestorage.googleapis.com/v0/b/anthonymogotlane.appspot.com/o/Screenshot%202025-12-11%20063604.png?alt=media&token=c22c4ab7-0cf3-43ac-bbfb-a58b08a9cbf5)
+
+
 ## Overview
 This is improvements to modernise the stack, enhance maintainability, and streamline integration with frontend. The following sections outline the key changes and the reasoning behind them.
 
