@@ -1,0 +1,6 @@
+@UltimateRace.Api_HostAddress = http://localhost:5084
+
+GET {{UltimateRace.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

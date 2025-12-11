@@ -1,0 +1,11 @@
+{
+  "/race": {
+    "target": "https://localhost:7258",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/race": ""
+    }
+  }
+}

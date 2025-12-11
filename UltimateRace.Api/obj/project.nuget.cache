@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "x0hKyJgH2ks=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\casual nexus\\The Ultimate Race\\UltimateRace.Api\\UltimateRace.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AMdeveloper\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.11\\microsoft.aspnetcore.openapi.8.0.11.nupkg.sha512",
+    "C:\\Users\\AMdeveloper\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512"
+  ],
+  "logs": []
+}

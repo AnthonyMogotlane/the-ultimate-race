@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+	  <TargetFramework>net8.0</TargetFramework>
+	
+	
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove=".#Vehicle.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UltimateRace.Common\UltimateRace.Common.csproj" />
+  </ItemGroup>
+</Project>

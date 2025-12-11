@@ -1,0 +1,107 @@
+<!-- race.component.html -->
+<div class="race-container">
+  <h1 style="color: #3987e6;">🏁 Ultimate Race 🏁</h1>
+  <p class="subtitle">Cairo to Cape Town - A journey of blood, sweat, and gears!</p>
+
+  <!-- Start Race Button -->
+  <div *ngIf="!raceStarted" class="start-section">
+    <button (click)="startRace()" class="start-button" [disabled]="raceStatus?.raceStarted">
+      🏁 Start Race!
+    </button>
+    <p *ngIf="raceStatus?.raceStarted" class="info-message">
+      Race already in progress!
+    </p>
+  </div>
+
+  <!-- Race Status -->
+  <div *ngIf="raceStatus" class="status-section">
+    <div class="race-info">
+      <div class="info-card">
+        <h3>Race Status</h3>
+        <p *ngIf="raceStarted" class="status in-progress">🏎️ Race In Progress</p>
+        <p *ngIf="!raceStarted" class="status not-started">⏸️ Race Not Started</p>
+        <p>Finished: {{raceStatus?.contestantsFinished}}/4</p>
+        <p>Remaining: {{raceStatus?.contestantsRemaining}}/4</p>
+        <p>Last Updated: {{raceStatus?.lastUpdated | date:'HH:mm:ss'}}</p>
+      </div>
+
+      <!-- Results -->
+      <div class="info-card" *ngIf="results.length > 0">
+        <h3>🏆 Race Results</h3>
+        <div *ngFor="let result of results" class="result-item">
+          {{result}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="leaderboard-section">
+      <h2>Leaderboard</h2>
+      <table class="leaderboard">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Vehicle</th>
+            <th>Distance (km)</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vehicle of getLeaderboard(); let i = index">
+            <td class="rank">
+              <span class="medal" *ngIf="i < 3">🥇🥈🥉</span>
+              {{vehicle.rank}}
+            </td>
+            <td class="vehicle-name">
+              <span [class]="'icon ' + vehicle.vehicle.toLowerCase()">
+                {{getVehicleIcon(vehicle.vehicle)}}
+              </span>
+              {{vehicle.vehicle}}
+            </td>
+            <td class="distance">{{vehicle.position | number:'1.0-0'}} km</td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress-fill" 
+                     [style.width]="getProgressPercentage(vehicle.vehicle.toLowerCase()) + '%'">
+                  {{getProgressPercentage(vehicle.vehicle.toLowerCase()) | number:'1.0-0'}}%
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Vehicle Cards -->
+    <div class="vehicles-grid">
+      <div class="vehicle-card" *ngFor="let vehicle of ['Chopper', 'Bike', 'Tesla', 'Nuclear Sub']">
+        <div class="vehicle-header">
+          <span [class]="'vehicle-icon ' + vehicle.toLowerCase()">
+            {{getVehicleIcon(vehicle)}}
+          </span>
+          <h3>{{vehicle}}</h3>
+        </div>
+        <div class="vehicle-stats">
+          <p>
+            <strong>Position:</strong> 
+            {{getVehiclePosition(vehicle) | number:'1.0-0'}} km
+          </p>
+          <p>
+            <strong>Target:</strong> 
+            {{getVehicleTarget(vehicle) | number:'1.0-0'}} km
+          </p>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" 
+                   [style.width]="getProgressPercentage(vehicle.toLowerCase()) + '%'">
+              </div>
+            </div>
+            <span class="progress-text">
+              {{getProgressPercentage(vehicle.toLowerCase()) | number:'1.0-0'}}%
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
